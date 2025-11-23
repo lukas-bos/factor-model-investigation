@@ -1,0 +1,15 @@
+[project]
+name = "factor-model-investigation"
+version = "0.0.1"
+authors = [
+    { name="Lukas Bos" },
+]
+description = "Portfolio construction using factor modeling."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE*"]
