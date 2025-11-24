@@ -22,7 +22,7 @@ def fetch_raw_data(tickers: str | list, interval: str = '1d', start: str = None,
     Returns:
         pd.DataFrame: OHLC and volume data
     """
-    data = yf.download(tickers=tickers, interval=interval, start=start, end=end)
+    data = yf.download(tickers=tickers, interval=interval, start=start, end=end, progress=False)
     
     if _verify_yf_data(data):
         return data
@@ -33,6 +33,15 @@ def clean_data():
     pass
 
 def _verify_yf_data(data: pd.DataFrame) -> bool:
+    """
+    Error handling for the yfinance data pull.
+
+    Args:
+        data (pd.DataFrame): The raw data pulled from yfinance.
+    
+    Returns:
+        bool: True if data is valid, False if not.
+    """
 
     if not data.equals(data.dropna(inplace=False)):
         logger.warning("NaN rows detected in YFinance data.")
@@ -44,4 +53,4 @@ def _verify_yf_data(data: pd.DataFrame) -> bool:
     return True
 
 if __name__ == "__main__":
-    print(fetch_raw_data(['TSLA', 'CRWV'], start='2022-01-01'))
+    fetch_raw_data(['TSLA', 'CRWV'], start='2020-01-01')

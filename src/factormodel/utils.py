@@ -7,6 +7,15 @@ This includes a more detailed logger function.
 import logging
 
 def get_logger(name: str) -> logging.Logger:
+    """
+    Get a logger for debugging purposes.
+
+    Args:
+        name (str): Name of the logger, usually __name__.
+    
+    Returns:
+        logging.Logger: A logger that writes to the console.
+    """
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
