@@ -5,7 +5,7 @@ Tools for pulling and processing data used for factor modeling.
 import pandas as pd
 import yfinance as yf
 
-from utils import get_logger
+from .utils import get_logger
 
 logger = get_logger(__name__)
 
